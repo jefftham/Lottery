@@ -1,5 +1,5 @@
 # Lottery
-[Lottery](https://github.com/jefftham/Lottery) is a project created by the [Jeff Tham](https://github.com/jefftham/) .
+[Lottery](https://github.com/jefftham/Lottery) is a project created by the [Jeff Tham](https://github.com/jefftham/). This repo is run on linux at root privilege, create server on [NodeJS](https://nodejs.org/en/), build https connection with [letsencrypt](https://letsencrypt.org/), configurate routing by [ExpressJS](http://expressjs.com/), scrape website with jQuery syntax by [cheerio](https://cheerio.js.org/), update website and interact with user by [WebSocket](https://www.npmjs.com/package/ws), and build user interface by [jQueryUI](https://jqueryui.com/) & [Bootstrap](http://getbootstrap.com/).
 
 ## Table of Contents
 - [Purpose](#Purpose)
@@ -34,6 +34,7 @@ The setup.sh in the repository will start the server by default.
 One may run `node lottery_server.js` if needed.
 
 ## Features
+- [x] Create https server with [letsencrypt](https://letsencrypt.org/)
 - [x] Get latest Powerball result.
 - [x] Get latest Mega Millions result. 
 - [ ] Get latest Hot Lotto result.
@@ -44,10 +45,11 @@ One may run `node lottery_server.js` if needed.
 - [ ] Get latest DC lottery results.
 - [ ] Get latest VA lottery results.
 - [ ] Get latest other states results.
-- [ ] scheduling tast to get results on time.
+- [ ] Scheduling task to get results on time.
 - [ ] WebSocket Manager in server-side and client-side to display the latest results.
-- [ ] UI/UX of the website with jQuery/Angularjs.
-- [ ] dynamic routing by user's IP address.
+- [ ] UI/UX of the website with jQuery and Bootstrap.
+- [ ] Dynamic routing by user's IP address.
+
 
 
 ## Disclaimer
