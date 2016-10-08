@@ -6,14 +6,11 @@
 - [Reasons](#Reasons)
 - [Installation](#Installation)
 - [use](#Use)
- - [Bugs](#bugs--issues)
- - [Feature Requests](#feature-requests)
- - [Pull Requests](#pull-requests)
 - [Features](#features)
-- [Credits](#credits)
+- [Disclaimer](#Disclaimer)
 
 ##Purpose
-- This is a person project/portfolio/repository for the [author](https://github.com/jefftham/) to show and prove his knowlegde in JavaScript, NodeJS, ExpressJs, Websocket, jQuery, & etc. 
+- This is a personal project/portfolio/repository for the [author](https://github.com/jefftham/) to show and prove his knowlegde in JavaScript, NodeJS, ExpressJs, Websocket, jQuery, & etc. 
 
 ##Reasons
 - For your information, the [author](https://github.com/jefftham/) does not have special interest in lottery. The reason of picking lottery as a personal project is that the [author](https://github.com/jefftham/) plan to implement dynamic routing by user's IP address in this [project](https://github.com/jefftham/Lottery). For example, the main page will display Virginia Lottery Result if the user's IP address is in Virginia.
@@ -37,20 +34,20 @@ The setup.sh in the repository will start the server by default.
 One may run `node lottery_server.js` if needed.
 
 ## Features
-- [x] Get lastest Powerball result.
-- [x] Get lastest Mega Millions result.
-- [.] Get lastest Hot Lotto result.
-- [.] Get lastest Wildcard result.
-- [.] Get lastest 2 by 2 result.
-- [.] Get lastest MegaHits result.
-- [.] Get lastest All or Nothing result.
-- [.] Get lastest DC lottery results.
-- [.] Get lastest VA lottery results.
-- [.] Get lastest other states results.
-- [.] scheduling tast to get results on time.
-- [.] WebSocket Manager in server-side and client-side to display the lastest results.
-- [.] UI/UX of the website with jQuery/Angularjs.
-- [.] dynamic routing by user's IP address.
+- [x] Get latest Powerball result.
+- [x] Get latest Mega Millions result. 
+- [ ] Get latest Hot Lotto result.
+- [ ] Get latest Wildcard result.
+- [ ] Get latest 2 by 2 result.
+- [ ] Get latest MegaHits result.
+- [ ] Get latest All or Nothing result.
+- [ ] Get latest DC lottery results.
+- [ ] Get latest VA lottery results.
+- [ ] Get latest other states results.
+- [ ] scheduling tast to get results on time.
+- [ ] WebSocket Manager in server-side and client-side to display the latest results.
+- [ ] UI/UX of the website with jQuery/Angularjs.
+- [ ] dynamic routing by user's IP address.
 
 
 ## Disclaimer
