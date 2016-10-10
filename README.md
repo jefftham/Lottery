@@ -2,12 +2,12 @@
 [Lottery](https://github.com/jefftham/Lottery) is a project created by the [Jeff Tham](https://github.com/jefftham/). This repo is run on linux at root privilege, create server on [NodeJS](https://nodejs.org/en/), build https connection with [letsencrypt](https://letsencrypt.org/), configurate routing by [ExpressJS](http://expressjs.com/), scrape website with jQuery syntax by [cheerio](https://cheerio.js.org/), update website and interact with user by [WebSocket](https://www.npmjs.com/package/ws), and build user interface by [jQueryUI](https://jqueryui.com/) & [Bootstrap](http://getbootstrap.com/).
 
 ## Table of Contents
-- [Purpose](#Purpose)
-- [Reasons](#Reasons)
-- [Installation](#Installation)
-- [use](#Use)
+- [Purpose](#purpose)
+- [Reasons](#reasons)
+- [Installation](#installation)
+- [Use](#use)
 - [Features](#features)
-- [Disclaimer](#Disclaimer)
+- [Disclaimer](#disclaimer)
 
 ##Purpose
 - This is a personal project/portfolio/repository for the [author](https://github.com/jefftham/) to show and prove his knowlegde in JavaScript, NodeJS, ExpressJs, Websocket, jQuery, & etc. 
