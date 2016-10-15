@@ -1,0 +1,29 @@
+{
+  "name": "Lottery",
+  "version": "1.0.0",
+  "description": "a real-time lottery results app",
+  "main": "lottery_server.js",
+  "directories": {
+    
+  },
+  "scripts": {
+   
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "powerball","lottery","mega millions"
+  ],
+  "author": "Jeff Tham",
+  "license": "",
+  "homepage": "",
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "express": "^4.14.0",
+    "google-closure-compiler": "^20160713.2.0",
+    "redirect-https": "^1.1.0",
+    "ws": "^1.1.1"
+  }
+}
