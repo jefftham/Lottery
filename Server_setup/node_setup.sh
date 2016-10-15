@@ -29,3 +29,8 @@ export NODE_PATH=~/.nvm/versions/node/$node_version/lib/node_modules
 
 #set $NODE_PATH every time the session start
 echo "export NODE_PATH=~/.nvm/versions/node/$node_version/lib/node_modules" >>~/.profile
+
+#use nodejs without Close and reopen your terminal
+export NVM_DIR="/root/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  
+
