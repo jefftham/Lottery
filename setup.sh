@@ -16,3 +16,9 @@ source $BASE_DIR/Server_setup/node_setup.sh
 #use nodejs without Close and reopen your terminal
 export NVM_DIR="/root/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  
+
+#install node dependencies
+npm install
+
+#start the app
+npm start
