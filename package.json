@@ -7,11 +7,12 @@
     
   },
   "scripts": {
-   
+   "_start": "NODE_ENV='production' node lottery_server.js",
+   "start": "NODE_ENV='development' node lottery_server.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jefftham/Lottery"
+    "url": "git+https://github.com/jefftham/Lottery"
   },
   "keywords": [
     "powerball","lottery","mega millions"
@@ -29,7 +30,7 @@
     "cookie-parser": "~1.3.5",
     "debug": "~2.2.0",
     "morgan": "~1.6.1",
-    "auto-sni": "~1.5.0",
+    "auto-sni": "~1.5.1",
     "redirect-https": "1.1.0"
   }
 }
