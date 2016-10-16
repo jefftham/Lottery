@@ -34,8 +34,8 @@ The setup.sh in the repository will start the server by default.
 One may run `node lottery_server.js` if needed.
 
 ## Features
-- [ ] Create https server with [letsencrypt](https://letsencrypt.org/)
-- [ ] Get latest [Powerball](http://www.powerball.com/) result.
+- [x] Create https server with [letsencrypt](https://letsencrypt.org/)
+- [x] Get latest [Powerball](http://www.powerball.com/) result.
 - [ ] Get latest [Mega Millions](http://www.megamillions.com/) result. 
 - [ ] Get latest [Hot Lotto](http://www.powerball.com/hotlotto/hl_numbers.asp) result.
 - [ ] Get latest [Wildcard](http://www.powerball.com/wildcard/wc_main.asp) result.
