@@ -19,7 +19,7 @@ var live_url = 'http://www.powerball.com/powerball/pb_numbers.asp';
     */
 
 /**
- * @description     get the latest powerball result from the office website with getLive() or get from data.ny.gov with givHis()
+ * @description     get the latest powerball result from the office website with getLive() or get from data.ny.gov with getHis()
  * @module          powerball.js
  * @access          public
  * @example         var pw = require('./Packages/Results/Multistate/powerball')

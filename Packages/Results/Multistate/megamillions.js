@@ -17,7 +17,7 @@ var live_url = 'http://www.powerball.com/megamillions/mm_numbers.asp';
     */
 
 /**
- * @description     get the latest mega millions result from the office website with getLive() or get from data.ny.gov with givHis()
+ * @description     get the latest mega millions result from the office website with getLive() or get from data.ny.gov with getHis()
  * @module          megamillions.js
  * @access          public
  * @example         var mega = require('./Packages/Results/Multistate/megamillions')
