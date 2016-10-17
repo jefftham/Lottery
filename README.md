@@ -37,6 +37,7 @@ One may run `node lottery_server.js` if needed.
 - [x] Create https server with [letsencrypt](https://letsencrypt.org/)
 - [x] Get latest [Powerball](http://www.powerball.com/) result.
 - [x] Get latest [Mega Millions](http://www.megamillions.com/) result. 
+- [x] Get latest [Cash 4 Life](https://en.wikipedia.org/wiki/Cash4Life) result.
 - [ ] Get latest [Hot Lotto](http://www.powerball.com/hotlotto/hl_numbers.asp) result.
 - [ ] Get latest [Wildcard](http://www.powerball.com/wildcard/wc_main.asp) result.
 - [ ] Get latest [2 by 2](http://www.powerball.com/2by2/2by2_numbers.asp) result.

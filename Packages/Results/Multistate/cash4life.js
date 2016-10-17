@@ -3,9 +3,10 @@ var request = require('request');
 
 var cheerio = require('cheerio');
     
-var  his_url = 'https://data.ny.gov/resource/5xaw-6ayf.json';
+var  his_url = 'https://data.ny.gov/resource/kwxv-fwze.json';
 
-var live_url = 'http://www.powerball.com/megamillions/mm_numbers.asp';
+var live_url = 'http://www.mdlottery.com/games/cash4life/winning-numbers/';
+
 
 
    /**
@@ -17,13 +18,14 @@ var live_url = 'http://www.powerball.com/megamillions/mm_numbers.asp';
     */
 
 /**
- * @description     get the latest mega millions result from the office website with getLive() or get from data.ny.gov with getHis()
- * @module          megamillions.js
+ * @description     get the latest cash 4 life result from the office website with getLive() or get from data.ny.gov with getHis()
+ * @module          cash4life.js
  * @access          public
- * @example         var mega = require('./Packages/Results/Multistate/megamillions')
- *                  var a; mega.getLive(function(live){a = live});
+ * @example         var cfl = require('./Packages/Results/Multistate/cash4life')
+ *                  var a; cfl.getLive(function(live){a = live});
  * @author          Jeff Tham <Jeff.Tham@email.com>
  */
+
 
 module.exports = {
 
@@ -34,12 +36,11 @@ module.exports = {
      *                  Just use it as a reference and provide the feasibility to show history result on the website.
      * @access          public
      * @param  {saveJSON}
-     * @example         var mega = require('./Packages/Results/Multistate/megamillions')
-     *                  var a; mega.getHis(function(his){a = his});
+     * @example         var cfl = require('./Packages/Results/Multistate/cash4life')
+     *                  var a; cfl.getHis(function(his){a = his});
      * @author          Jeff Tham <Jeff.Tham@email.com>
-     * @see  {@link https://data.ny.gov/resource/5xaw-6ayf.json}
+     * @see  {@link https://data.ny.gov/resource/kwxv-fwze.json}
      */
-    
     getHis:function(callback){
 
         var allResults;
@@ -51,13 +52,14 @@ module.exports = {
 
             callback(allResults);
 
-            console.log('Latest Mega Millions Result :', allResults[0]);
+            console.log('Latest Cash 4 Life Result :', allResults[0]);
           }
         });
 
         
     }
 
+    
 
     /**
      * @function        getLive
@@ -72,41 +74,50 @@ module.exports = {
     
     ,getLive:function(callback){
 
-        var result;
+        //function getLive(callback){
+        var result = {};
 
-        request(live_url, function(error, response, html){
+        var temp = request(live_url, function(error, response, html){
+            //console.log('response.statusCode ',response.statusCode);
+            //console.log(html);
             if (!error && response.statusCode == 200) {
             //console.log(html) ;
             
             var $ = cheerio.load(html,{normalizeWhitespace:true, withDomLvl1: true, decodeEntities: true});
 
-           
+            result.date = $('.numbers_tabl tr:nth-of-type(2) td:nth-of-type(1)').text();
 
-         //the css select is the tr of the latest result
-         //result is an array
-           result = $('td tr+ tr table:nth-child(1) tr:nth-child(2) ').map((i, element) => ({
-              //the css selector of td always starts at 1  
-              date        : $(element).find('td:nth-of-type(1)').text().trim()
-              ,1          :  $(element).find('td:nth-of-type(2)').text().trim()
-              ,2          :  $(element).find('td:nth-of-type(3)').text().trim()
-              ,3          :  $(element).find('td:nth-of-type(4)').text().trim()
-              ,4          :  $(element).find('td:nth-of-type(5)').text().trim()
-              ,5          :  $(element).find('td:nth-of-type(6)').text().trim()
-              ,mega_ball  :  $(element).find('td:nth-of-type(8)').text().trim()
-             
-            })).get();
+            var arr = $('.numbers_tabl tr:nth-of-type(2) strong').first().text().split(' ');
 
-          result[0]['megaplier'] = $('td tr+ tr table:nth-child(1) tr:nth-child(3) td b font').text().trim();
-              //the css selector of td always starts at 1  
+            for(var i =1; i <= 5; i++){
+                result[i] = arr[i - 1];
+            }
 
-            callback(result[0]);
+            result.cash_ball = $('.numbers_tabl tr:nth-of-type(2) strong').last().text();
 
-            console.log(JSON.stringify(result[0]));
+
+            callback(result);
+
+            console.log(result);
            
           }
         });
-
-        
-
     }
 };
+
+//other method to request html
+
+/*const https = require('https');
+
+https.get(live_url, (res) => {
+  console.log('statusCode:', res.statusCode);
+  console.log('headers:', res.headers);
+
+  res.on('data', (d) => {
+    process.stdout.write(d);
+  });
+
+}).on('error', (e) => {
+  console.error(e);
+});
+*/
