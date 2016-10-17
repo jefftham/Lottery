@@ -88,13 +88,13 @@ module.exports = {
          //result is an array
            result = $('div table:nth-child(1) tr:nth-child(2)').map((i, element) => ({
               //the css selector of td always starts at 1  
-              date: $(element).find('td:nth-of-type(1)').text().trim()
-              ,1 :  $(element).find('td:nth-of-type(2)').text().trim()
-              ,2 :  $(element).find('td:nth-of-type(3)').text().trim()
-              ,3 :  $(element).find('td:nth-of-type(4)').text().trim()
-              ,4 :  $(element).find('td:nth-of-type(5)').text().trim()
-              ,5 :  $(element).find('td:nth-of-type(6)').text().trim()
-              ,6 :  $(element).find('td:nth-of-type(8)').text().trim()
+              date        : $(element).find('td:nth-of-type(1)').text().trim()
+              ,1          :  $(element).find('td:nth-of-type(2)').text().trim()
+              ,2          :  $(element).find('td:nth-of-type(3)').text().trim()
+              ,3          :  $(element).find('td:nth-of-type(4)').text().trim()
+              ,4          :  $(element).find('td:nth-of-type(5)').text().trim()
+              ,5          :  $(element).find('td:nth-of-type(6)').text().trim()
+              ,powerball  :  $(element).find('td:nth-of-type(8)').text().trim()
              
             })).get();
 
