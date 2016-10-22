@@ -8,6 +8,8 @@ var url = require('url');
 var WebSocketServer = require('ws').Server;
 var createServer = require("auto-sni");
 
+/** @todo  please check the email address to yours */
+email = 'Jeff.Tham@email.com';
 
 /**
  * letsencrypt contains rate limit, after hitting the limit, letsencrypt will not generate or return the valid key-cert.
@@ -20,20 +22,24 @@ var createServer = require("auto-sni");
  */
 var isDebug = false;
 
+/*  update: i checked with the author of "auto-sni", new cert only be generated after 80 days of the existing cert creation date.
+
 if (app.get('env') === 'development') {
     isDebug = true;
 }
 
 console.log("isDebug is ",isDebug);
 
-//yeadev.com is my test domain, you should change it to you own domain.
-var domainList = ["www.yeadev.com", "yeadev.com"];
+*/
+
+//dynamic support all domain name.
+var domainList = ["127.0.0.1"];
 
 
 //create web (https) server with cert. 
 //make use of  letsencrypt.org
 var server = createServer({
-      email: 'Jeff.Tham@email.com', // Emailed when certificates expire.
+      email: email, // Emailed when certificates expire.
       agreeTos: true, // Required for letsencrypt.
       debug: isDebug, // Add console messages and uses staging LetsEncrypt server. (Disable in production)
       domains: domainList, // List of accepted domain names. (You can use nested arrays to register bundles with LE).
