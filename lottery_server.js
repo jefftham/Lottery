@@ -60,7 +60,60 @@ server.once("listening", function() {
 });
 
 
+//results
+
+  //load library
+  var pw = require('./Packages/Results/Multistate/powerball');
+  var mega = require('./Packages/Results/Multistate/megamillions');
+  var cfl = require('./Packages/Results/Multistate/cash4life');
+
+  //variables to keep latest results
+  var powerball;
+  var megamillions;
+  var cash4life;
+
+  //pull result 
+   pw.getLive(function(live){
+    powerball = live
+  });
+
+   mega.getLive(function(live){
+    megamillions = live
+  });
+
+   cfl.getLive(function(live){
+    cash4life = live
+  });
+
+   //reactive function for websocket manager, this will include all the handlers
+   function reactive(wm){
+
+    //add handler
+      wm.addHandler(
+        'powerball'
+        ,function(message){
+          wm.send(message.type, powerball)
+        }
+      );
+
+      wm.addHandler(
+        'megamillions'
+        ,function(message){
+          wm.send(message.type, megamillions)
+        }
+      );
+
+      wm.addHandler(
+        'cash4life'
+        ,function(message){
+          wm.send(message.type, cash4life)
+        }
+      );
+
+   }//end of reactive
+
+
+//create an instance of websocket manager and take the reative() as callback
 var WebsocketManager = require('./Packages/websocket_manager.js')
 
-var wm = new WebsocketManager(function(){}, {server:server});
-
+var wm = new WebsocketManager(reactive, {server:server});
