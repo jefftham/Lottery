@@ -37,6 +37,14 @@ SSH onto the machine and run the following commands:
 
 `screen -S server_setup -X stuff $'source Lottery/setup.sh\n'`
 
+The server will be running properly.
+
+If you want to run node.js manually without restarting the SSH/terminal, copy & paste following code to terminal:  
+
+`#use nodejs without Close and reopen your terminal
+export NVM_DIR="/root/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" `
+
 ##Use
 The setup.sh in the repository will start the server by default. 
 
