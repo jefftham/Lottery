@@ -8,8 +8,12 @@ var url = require('url');
 var WebSocketServer = require('ws').Server;
 var createServer = require("auto-sni");
 
-/** @todo  please check the email address to yours */
-email = 'Jeff.Tham@email.com';
+/** @todo  please change it to your email address */
+var email = 'Jeff.Tham@email.com';
+
+/** @todo  please change it to your domain name */
+var domainList = ["www.yeadev.com", "yeadev.com"];
+
 
 /**
  * letsencrypt contains rate limit, after hitting the limit, letsencrypt will not generate or return the valid key-cert.
@@ -32,8 +36,6 @@ console.log("isDebug is ",isDebug);
 
 */
 
-//dynamic support all domain name.
-var domainList = ["127.0.0.1"];
 
 
 //create web (https) server with cert. 
@@ -58,25 +60,7 @@ server.once("listening", function() {
 });
 
 
-var wss = new WebSocketServer({ server: server });
+var WebsocketManager = require('./Packages/websocket_manager.js')
 
-wss.on('connection', function connection(ws) {
-  var location = url.parse(ws.upgradeReq.url, true);
-  // you might use location.query.access_token to authenticate or share sessions 
-  // or ws.upgradeReq.headers.cookie (see http://stackoverflow.com/a/16395220/151312) 
- 
-  ws.on('message', function incoming(message) {
-    console.log(message);
-  });
- 
-  ws.send('something from server');
-});
- 
-//define the broadcast function for websocket
-wss.broadcast = function broadcast(data) {
-  wss.clients.forEach(function each(client) {
-    client.send(data);
-  });
-};
+var wm = new WebsocketManager(function(){}, {server:server});
 
-wss.broadcast("broadcast message")
