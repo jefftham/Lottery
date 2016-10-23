@@ -78,7 +78,7 @@ WebsocketManager = function(reactive, options){
                  * @param {string}  type - it will show as message.type on the other end.
                  * @param {*}       content - it will show as message.content on ther other end
                  * @example         wm.broadcast('any','a broadcast message')
-                 * @author          Jeff Tham <Jeff.Tham@widelity.com>
+                 * @author          Jeff Tham <Jeff.Tham@email.com>
                  */
                 self.broadcast = function(type,content){
                     var data = {};
