@@ -1,8 +1,8 @@
 var schedule = require('node-schedule');
 //load library
-var pw = require('./Packages/Results/Multistate/powerball');
-var mega = require('./Packages/Results/Multistate/megamillions');
-var cfl = require('./Packages/Results/Multistate/cash4life');
+var pw = require('./Results/Multistate/powerball');
+var mega = require('./Results/Multistate/megamillions');
+var cfl = require('./Results/Multistate/cash4life');
 
 
 
