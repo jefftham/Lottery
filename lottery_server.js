@@ -117,3 +117,7 @@ server.once("listening", function() {
 var WebsocketManager = require('./Packages/websocket_manager.js')
 
 var wm = new WebsocketManager(reactive, {server:server});
+
+//run the schedule
+var schedule = require('./Packages/schedule.js');
+schedule();
