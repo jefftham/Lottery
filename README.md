@@ -1,6 +1,9 @@
 # Lottery
 [Lottery](https://github.com/jefftham/Lottery) is a project created by the [Jeff Tham](https://github.com/jefftham/). This repo is run on linux at root privilege, create server on [NodeJS](https://nodejs.org/en/), build https connection with [letsencrypt](https://letsencrypt.org/), configurate routing by [ExpressJS](http://expressjs.com/), scrape website with jQuery syntax by [cheerio](https://cheerio.js.org/), update website and interact with user by [WebSocket](https://www.npmjs.com/package/ws), and build user interface by [jQueryUI](https://jqueryui.com/) & [Bootstrap](http://getbootstrap.com/).
 
+#Demo
+A demo of this repository can be found at [yeadev.com](https://yeadev.com).
+
 ## Table of Contents
 - [Purpose](#purpose)
 - [Reasons](#reasons)
@@ -61,7 +64,7 @@ One may run `node lottery_server.js` if needed.
 - [ ] Get latest [DC lottery](http://dclottery.com/) results.
 - [ ] Get latest [VA lottery](https://www.valottery.com/) results.
 - [ ] Get latest [other states](http://www.powerball.com/pb_links.asp) results.
-- [ ] Scheduling task to get results on time.
+- [x] Scheduling task to get results on time.
 - [x] WebSocket Manager in server-side and client-side to display the latest results.
 - [ ] UI/UX of the website with jQuery and Bootstrap.
 - [ ] Dynamic routing by user's IP address.

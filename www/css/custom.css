@@ -1,0 +1,49 @@
+.whiteBall {
+  background: black;
+  border-radius: 100%;
+  border-style:solid;
+  border-color: #000;
+  border-width: 1px;
+  height: 30px;
+  width: 30px;
+  margin: 0;
+  color:black;
+  text-align:center;
+  font-size: 18px;
+  background:  #fff;
+}
+
+.redBall {
+  background: black;
+  border-radius: 100%;
+  border-style:solid;
+  border-color: #000;
+  border-width: 1px;
+  height: 30px;
+  width: 30px;
+  margin: 0;
+  color:black;
+  text-align:center;
+  font-size: 18px;
+  background:  red;
+}
+.greenBall {
+  background: black;
+  border-radius: 100%;
+  border-style:solid;
+  border-color: #000;
+  border-width: 1px;
+  height: 30px;
+  width: 30px;
+  margin: 0;
+  color:black;
+  text-align:center;
+  font-size: 18px;
+  background:  green;
+}
+
+
+table {
+    border-collapse: separate;  !important;
+}
+  
