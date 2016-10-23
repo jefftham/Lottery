@@ -8,6 +8,12 @@ var url = require('url');
 var WebSocketServer = require('ws').Server;
 var createServer = require("auto-sni");
 
+/** @todo  please change it to your email address */
+var email = 'Jeff.Tham@email.com';
+
+/** @todo  please change it to your domain name */
+var domainList = ["www.yeadev.com", "yeadev.com"];
+
 
 /**
  * letsencrypt contains rate limit, after hitting the limit, letsencrypt will not generate or return the valid key-cert.
@@ -20,20 +26,22 @@ var createServer = require("auto-sni");
  */
 var isDebug = false;
 
+/*  update: i checked with the author of "auto-sni", new cert only be generated after 80 days of the existing cert creation date.
+
 if (app.get('env') === 'development') {
     isDebug = true;
 }
 
 console.log("isDebug is ",isDebug);
 
-//yeadev.com is my test domain, you should change it to you own domain.
-var domainList = ["www.yeadev.com", "yeadev.com"];
+*/
+
 
 
 //create web (https) server with cert. 
 //make use of  letsencrypt.org
 var server = createServer({
-      email: 'Jeff.Tham@email.com', // Emailed when certificates expire.
+      email: email, // Emailed when certificates expire.
       agreeTos: true, // Required for letsencrypt.
       debug: isDebug, // Add console messages and uses staging LetsEncrypt server. (Disable in production)
       domains: domainList, // List of accepted domain names. (You can use nested arrays to register bundles with LE).
@@ -52,25 +60,7 @@ server.once("listening", function() {
 });
 
 
-var wss = new WebSocketServer({ server: server });
+var WebsocketManager = require('./Packages/websocket_manager.js')
 
-wss.on('connection', function connection(ws) {
-  var location = url.parse(ws.upgradeReq.url, true);
-  // you might use location.query.access_token to authenticate or share sessions 
-  // or ws.upgradeReq.headers.cookie (see http://stackoverflow.com/a/16395220/151312) 
- 
-  ws.on('message', function incoming(message) {
-    console.log(message);
-  });
- 
-  ws.send('something from server');
-});
- 
-//define the broadcast function for websocket
-wss.broadcast = function broadcast(data) {
-  wss.clients.forEach(function each(client) {
-    client.send(data);
-  });
-};
+var wm = new WebsocketManager(function(){}, {server:server});
 
-wss.broadcast("broadcast message")

@@ -1,16 +1,10 @@
 
-var ws = new WebSocket('wss://'+location.hostname);
+//create an instance of websocket manager
+var wm = new WebsocketManager(
+    function(wm){wm.send('any','just say hai from browser!')}
+);
  
-ws.onopen = function(event) {
-  ws.send('something from browser');
-};
  
-ws.onmessage = function(event) {
-  // flags.binary will be set if a binary data is received. 
-  // flags.masked will be set if the data was masked. 
-  console.log(event.data);
-};
-
 
 $(document).ready(function() {
 

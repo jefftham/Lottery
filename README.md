@@ -4,6 +4,7 @@
 ## Table of Contents
 - [Purpose](#purpose)
 - [Reasons](#reasons)
+- [Achievements & Proofs](#achievements--proofs)
 - [Installation](#installation)
 - [Use](#use)
 - [Features](#features)
@@ -16,6 +17,14 @@
 - For your information, the [author](https://github.com/jefftham/) does not have special interest in lottery. The reason of picking lottery as a personal project is that the [author](https://github.com/jefftham/) plan to implement dynamic routing by user's IP address in this [project](https://github.com/jefftham/Lottery). For example, the main page will display Virginia Lottery Result if the user's IP address is in Virginia.
 - Since Lottery Results are updating frequently, it is a good challenge to parse/scrape the official websites and display the latest results.
 
+##Achievements & Proofs
+1. It is possible to scrap or copy content from foreign/other website in Node.js
+2. A schedule can be set to pull data from foreign/other website. (better than long polling)
+3. There are a lot of better way to update the website instantly. (angular.js is not the only option, websocket is an option too)
+4. Using jQuery on Node.js is possible. (through cheerio.js)
+5. Create HTTPS server is easy and the SSL/TLS cert is free, all web servers should be running in a secure way.
+
+
 ##Installation
 ###In Linux
 SSH onto the machine and run the following commands:
@@ -27,6 +36,13 @@ SSH onto the machine and run the following commands:
 `screen -dmSL server_setup bash`
 
 `screen -S server_setup -X stuff $'source Lottery/setup.sh\n'`
+
+The server will be running properly.
+
+If you want to run node.js manually without restarting the SSH/terminal, copy & paste following code to terminal:  
+
+`export NVM_DIR="/root/.nvm"`   
+`[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" `
 
 ##Use
 The setup.sh in the repository will start the server by default. 
@@ -46,7 +62,7 @@ One may run `node lottery_server.js` if needed.
 - [ ] Get latest [VA lottery](https://www.valottery.com/) results.
 - [ ] Get latest [other states](http://www.powerball.com/pb_links.asp) results.
 - [ ] Scheduling task to get results on time.
-- [ ] WebSocket Manager in server-side and client-side to display the latest results.
+- [x] WebSocket Manager in server-side and client-side to display the latest results.
 - [ ] UI/UX of the website with jQuery and Bootstrap.
 - [ ] Dynamic routing by user's IP address.
 
