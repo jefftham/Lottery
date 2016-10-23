@@ -93,7 +93,8 @@ module.exports = {
                 result[i] = arr[i - 1];
             }
 
-            result.cash_ball = $('.numbers_tabl tr:nth-of-type(2) strong').last().text();
+            //result.cash_ball = $('.numbers_tabl tr:nth-of-type(2) strong').last().text();
+            result[6] = $('.numbers_tabl tr:nth-of-type(2) strong').last().text();
 
 
             callback(result);

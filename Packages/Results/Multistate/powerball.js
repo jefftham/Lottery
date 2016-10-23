@@ -94,7 +94,8 @@ module.exports = {
               ,3          :  $(element).find('td:nth-of-type(4)').text().trim()
               ,4          :  $(element).find('td:nth-of-type(5)').text().trim()
               ,5          :  $(element).find('td:nth-of-type(6)').text().trim()
-              ,powerball  :  $(element).find('td:nth-of-type(8)').text().trim()
+              //,powerball  :  $(element).find('td:nth-of-type(8)').text().trim()
+              ,6          :  $(element).find('td:nth-of-type(8)').text().trim()
              
             })).get();
 
