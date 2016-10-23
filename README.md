@@ -4,7 +4,7 @@
 ## Table of Contents
 - [Purpose](#purpose)
 - [Reasons](#reasons)
-- [Achievements & Proofs](#achievements&nbsp;&amp;&nbsp;proofs)
+- [Achievements & Proofs](#achievements--proofs)
 - [Installation](#installation)
 - [Use](#use)
 - [Features](#features)
