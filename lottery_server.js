@@ -120,4 +120,4 @@ var wm = new WebsocketManager(reactive, {server:server});
 
 //run the schedule
 var schedule = require('./Packages/schedule.js');
-schedule();
+schedule(wm);
