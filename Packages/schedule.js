@@ -37,22 +37,32 @@ module.exports = function(wm){
     // schedule.scheduleJob('*/10 * * * * *', function(){
     //      wm.send('any',new Date().toLocaleString('en-us',{timeZone:'America/New_York'}) );
     // });
+    // 
+     // schedule.scheduleJob('* * * * * 3', function(){
+     //      wm.broadcast('any',new Date().toLocaleString('en-us',{timeZone:'America/New_York'}) );
+     //      console.log(new Date().toLocaleString('en-us',{timeZone:'America/New_York'}));
+     // });
     
 
     // pull 4 times to make sure the result is updated
     
     //powerball result: Every Wednesday and Saturday night at 10:59 p.m  Eastern Time
     //http://www.powerball.com/powerball/pb_howtoplay.asp
-    var sch_powerball = '* 1,5,15,30 23 * * 3,6';  //every Wednesday & Saturday at 11:01, 11:05, 11:15, 11:30 pm
+    //var sch_powerball = '1 1,5,15,30 23 * * 3,6';  //every Wednesday & Saturday at 11:01.01, 11:05.01, 11:15.01, 11:30.01 pm
+
+    var sch_powerball = '1 1,5,15,30 * * * 3,6'; // ?????? temporary run for every hour in specific time because of the bug in node-schedule ver 1.2.0
 
    //Tuesday and Friday at 11:00 p.m. Eastern Time
     //http://www.megamillions.com/faqs
-    var sch_megamillions = '* 1,5,15,30 23 * * 2,5';  //every Tuesday and Friday at 11:01, 11:05, 11:15, 11:30 pm
+    //var sch_megamillions = '1 1,5,15,30 23 * * 2,5';  //every Tuesday and Friday at 11:01.01, 11:05.01, 11:15.01, 11:30.01 pm
+
+    var sch_megamillions = '1 1,5,15,30 * * * 2,5'; // ?????? temporary run for every hour in specific time because of the bug in node-schedule ver 1.2.0
 
     //Drawings are held at 9 p.m. every Monday and Thursday.
     //http://www.mdlottery.com/games/cash4life/faqs/
-    var sch_cash4life = '* 1,5,15,30 21 * * 1,4';  //every Monday and Thursday at 9:01, 9:05, 9:15, 9:30 pm
+   // var sch_cash4life = '1 1,5,15,30 21 * * 1,4';  //every Monday and Thursday at 9:01.01, 9:05.01, 9:15.01, 9:30.01 pm
 
+   var sch_cash4life = '1 1,5,15,30 * * * 1,4'; // ?????? temporary run for every hour in specific time because of the bug in node-schedule ver 1.2.0
 
     //run the schedule now
     
