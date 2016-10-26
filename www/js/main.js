@@ -108,7 +108,7 @@ $(document).ready(function() {
             //clear the interval
             window.clearInterval(interval);
         }
-    },1000)
+    },100)
 
 
  
