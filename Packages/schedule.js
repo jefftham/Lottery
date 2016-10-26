@@ -45,9 +45,9 @@ module.exports = function(wm){
     //http://www.powerball.com/powerball/pb_howtoplay.asp
     var sch_powerball = '* 1,5,15,30 23 * * 3,6';  //every Wednesday & Saturday at 11:01, 11:05, 11:15, 11:30 pm
 
-    //Tuesday and Friday at 11:00 p.m. Eastern Time, 10:00 p.m
+   //Tuesday and Friday at 11:00 p.m. Eastern Time
     //http://www.megamillions.com/faqs
-    var sch_megamillions = '* 1,5,15,30 22 * * 2,5';  //every Tuesday and Friday at 10:01, 10:05, 10:15, 10:30 pm
+    var sch_megamillions = '* 1,5,15,30 23 * * 2,5';  //every Tuesday and Friday at 11:01, 11:05, 11:15, 11:30 pm
 
     //Drawings are held at 9 p.m. every Monday and Thursday.
     //http://www.mdlottery.com/games/cash4life/faqs/
