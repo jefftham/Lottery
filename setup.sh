@@ -21,6 +21,8 @@ export NVM_DIR="/root/.nvm"
 
 #set the system timezone
 echo 'America/New_York' > /etc/timezone
+rm /etc/localtime
+cp /usr/share/zoneinfo/US/Eastern /etc/localtime
 
 #use it instantly
 export TZ=America/New_York
