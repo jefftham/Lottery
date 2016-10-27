@@ -9,6 +9,10 @@ var cfl = require('./Results/Multistate/cash4life');
 /**
  * @description     this module takes an instance of websocket manager, 
  *                  set a series of schedules and broadcast the latest results to the clients.
+ *
+ *                  in order to make it working fine, please set your system timezone.
+ * @see             {@link http://www.thegeekstuff.com/2010/09/change-timezone-in-linux/  }
+ * 
  * @module          schedule
  * @access          public
  * @requires        websocket_manager.js
@@ -48,21 +52,15 @@ module.exports = function(wm){
     
     //powerball result: Every Wednesday and Saturday night at 10:59 p.m  Eastern Time
     //http://www.powerball.com/powerball/pb_howtoplay.asp
-    //var sch_powerball = '1 1,5,15,30 23 * * 3,6';  //every Wednesday & Saturday at 11:01.01, 11:05.01, 11:15.01, 11:30.01 pm
-
-    var sch_powerball = '1 1,5,15,30 * * * 3,6'; // ?????? temporary run for every hour in specific time because of the bug in node-schedule ver 1.2.0
+    var sch_powerball = '1 1,5,15,30 23 * * 3,6';  //every Wednesday & Saturday at 11:01.01, 11:05.01, 11:15.01, 11:30.01 pm
 
    //Tuesday and Friday at 11:00 p.m. Eastern Time
     //http://www.megamillions.com/faqs
-    //var sch_megamillions = '1 1,5,15,30 23 * * 2,5';  //every Tuesday and Friday at 11:01.01, 11:05.01, 11:15.01, 11:30.01 pm
-
-    var sch_megamillions = '1 1,5,15,30 * * * 2,5'; // ?????? temporary run for every hour in specific time because of the bug in node-schedule ver 1.2.0
+    var sch_megamillions = '1 1,5,15,30 23 * * 2,5';  //every Tuesday and Friday at 11:01.01, 11:05.01, 11:15.01, 11:30.01 pm
 
     //Drawings are held at 9 p.m. every Monday and Thursday.
     //http://www.mdlottery.com/games/cash4life/faqs/
-   // var sch_cash4life = '1 1,5,15,30 21 * * 1,4';  //every Monday and Thursday at 9:01.01, 9:05.01, 9:15.01, 9:30.01 pm
-
-   var sch_cash4life = '1 1,5,15,30 * * * 1,4'; // ?????? temporary run for every hour in specific time because of the bug in node-schedule ver 1.2.0
+    var sch_cash4life = '1 1,5,15,30 21 * * 1,4';  //every Monday and Thursday at 9:01.01, 9:05.01, 9:15.01, 9:30.01 pm
 
     //run the schedule now
     
@@ -75,6 +73,7 @@ module.exports = function(wm){
             powerball = live
 
             wm.broadcast('powerball',live);
+            wm.broadcast('any', 'just update new result on '+new Date().toLocaleString('en-us',{timeZone:'America/New_York'}))
             
         }); //end getLive
     }); //end schedule
@@ -88,6 +87,7 @@ module.exports = function(wm){
             megamillions = live
 
             wm.broadcast('megamillions',live);
+            wm.broadcast('any', 'just update new result on '+new Date().toLocaleString('en-us',{timeZone:'America/New_York'}))
             
         }); //end getLive
     }); //end schedule
@@ -101,6 +101,7 @@ module.exports = function(wm){
             cash4life = live
 
             wm.broadcast('cash4life',live);
+            wm.broadcast('any', 'just update new result on '+new Date().toLocaleString('en-us',{timeZone:'America/New_York'}))
             
         }); //end getLive
     }); //end schedule
