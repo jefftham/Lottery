@@ -68,21 +68,22 @@ server.once("listening", function() {
   var cfl = require('./Packages/Results/Multistate/cash4life');
 
   //variables to keep latest results
-  var powerball;
-  var megamillions;
-  var cash4life;
+  var results = {};
+  results.powerball;
+  results.megamillions;
+  results.cash4life;
 
-  //pull result 
+  //pull results when server started
    pw.getLive(function(live){
-    powerball = live
+    results.powerball = live
   });
 
    mega.getLive(function(live){
-    megamillions = live
+    results.megamillions = live
   });
 
    cfl.getLive(function(live){
-    cash4life = live
+    results.cash4life = live
   });
 
    //reactive function for websocket manager, this will include all the handlers
@@ -92,21 +93,21 @@ server.once("listening", function() {
       wm.addHandler(
         'powerball'
         ,function(message){
-          wm.send(message.type, powerball)
+          wm.send(message.type, results.powerball)
         }
       );
 
       wm.addHandler(
         'megamillions'
         ,function(message){
-          wm.send(message.type, megamillions)
+          wm.send(message.type, results.megamillions)
         }
       );
 
       wm.addHandler(
         'cash4life'
         ,function(message){
-          wm.send(message.type, cash4life)
+          wm.send(message.type, results.cash4life)
         }
       );
 
@@ -120,4 +121,4 @@ var wm = new WebsocketManager(reactive, {server:server});
 
 //run the schedule
 var schedule = require('./Packages/schedule.js');
-schedule(wm);
+schedule(wm, results);

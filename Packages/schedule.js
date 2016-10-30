@@ -16,12 +16,13 @@ var timeZone = 'America/New_York';
  * @requires        websocket_manager.js
  * @requires        cron - a node- module (https://www.npmjs.com/package/cron)
  * @param {#WebsocketManager} wm - an instance of websocket manager
+ * @param {object}  results - an object to hold all the lottery results (JavaScript argument is passed by reference)
  * @example         var schedule = require('./Packages/schedule')
  *                  schedule(wm);
  * @author          Jeff Tham <Jeff.Tham@email.com>
  */
 
-module.exports = function(wm){
+module.exports = function(wm, results){
 
 /* cron-alike syntax
 *    *    *    *    *    *
@@ -73,10 +74,10 @@ new CronJob( cronString, function to run on that time, function to run after the
             //pull result
             pw.getLive(function(live){
                 //add it to the global result
-                powerball = live
+                results.powerball = live;
 
                 wm.broadcast('powerball',live);
-                wm.broadcast('any', 'just update new result on '+new Date().toLocaleString('en-us',{timeZone:'America/New_York'}));
+                wm.broadcast('any', 'just update new result at '+new Date().toLocaleString('en-us',{timeZone:'America/New_York'}));
                 console.log('cron job run at: ',new Date().toLocaleString('en-us',{timeZone:'America/New_York'}));
                 
             }); //end getLive
@@ -95,10 +96,10 @@ new CronJob( cronString, function to run on that time, function to run after the
             //pull result
             mega.getLive(function(live){
                 //add it to the global result
-                megamillions = live
+                results.megamillions = live;
 
                 wm.broadcast('megamillions',live);
-                wm.broadcast('any', 'just update new result on '+new Date().toLocaleString('en-us',{timeZone:'America/New_York'}));
+                wm.broadcast('any', 'just update new result at '+new Date().toLocaleString('en-us',{timeZone:'America/New_York'}));
                 console.log('cron job run at: ',new Date().toLocaleString('en-us',{timeZone:'America/New_York'}));
                 
             }); //end getLive
@@ -119,10 +120,10 @@ new CronJob( cronString, function to run on that time, function to run after the
             //pull result
             cfl.getLive(function(live){
                 //add it to the global result
-                cash4life = live
+                results.cash4life = live;
 
                 wm.broadcast('cash4life',live);
-                wm.broadcast('any', 'just update new result on '+new Date().toLocaleString('en-us',{timeZone:'America/New_York'}));
+                wm.broadcast('any', 'just update new result at '+new Date().toLocaleString('en-us',{timeZone:'America/New_York'}));
                 console.log('cron job run at: ',new Date().toLocaleString('en-us',{timeZone:'America/New_York'}));
                 
             }); //end getLive
@@ -132,5 +133,33 @@ new CronJob( cronString, function to run on that time, function to run after the
         ,timeZone
 
     ); //end CronJob
+
+/*    //testing - generete randon result for cash4life
+    new CronJob(
+        '1 * * * * *'
+        , function(){
+
+            //pull result
+            var live = {};
+
+            for(var i =1; i <= 6; i++){
+                live[i] = Math.floor((Math.random()*60) + 1);
+            }
+
+            live.date = '99/99/9999';
+
+            results.cash4life = live;
+
+            wm.broadcast('cash4life',live);
+            wm.broadcast('any', 'just update new result at '+new Date().toLocaleString('en-us',{timeZone:'America/New_York'}));
+            console.log('cron job run at: ',new Date().toLocaleString('en-us',{timeZone:'America/New_York'}));
+
+        }
+        ,null
+        ,true
+        ,timeZone
+
+    ); //end CronJob
+*/
 
 }
