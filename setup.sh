@@ -19,6 +19,15 @@ source $BASE_DIR/Server_setup/node_setup.sh
 export NVM_DIR="/root/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  
 
+#set the system timezone
+echo 'America/New_York' > /etc/timezone
+rm /etc/localtime
+cp /usr/share/zoneinfo/US/Eastern /etc/localtime
+
+#use it instantly
+export TZ=America/New_York
+
+
 pushd $APP_DIR
 
 #install node dependencies

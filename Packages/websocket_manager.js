@@ -36,7 +36,10 @@ WebsocketManager = function(reactive, options){
     //the open websocket
     this.ws;
 
-    //
+    //broadcast to all connected clients (only server can called)
+    this.broadcast = function(type,content){if(isNode){console.log('server never got any client yet.')}else{console.log('client is not able to broadcast.')} } //this function will build correct at following line.
+
+    //check the running environment
     if(isNode){
         //on nodejs
 
@@ -84,9 +87,13 @@ WebsocketManager = function(reactive, options){
                     var data = {};
                     data.type = type;
                     data.content = content;
-                    self.wss.clients.forEach(function(websocket){
-                        websocket.send(JSON.stringify(data));
-                    });
+
+                    if(self.wss.clients.length > 0){
+                        //at least one client is visting the webpage
+                        self.wss.clients.forEach(function(websocket){
+                            websocket.send(JSON.stringify(data));
+                        });
+                    }
                 }
 
                 //assign wm.broadcast tot wm.wss.broadcast
